@@ -1,0 +1,29 @@
+class Solution {
+    public int subarraySum(int[] nums, int k) {
+        int count =0;
+        HashMap<Integer , Integer> map = new HashMap<>();
+        
+        int i=-1;
+        int sum =0;
+        map.put(0,1);
+        while(i<nums.length -1){
+            i++;
+            sum +=nums[i];
+            
+            if(map.containsKey(sum)){
+                if(map.get(sum) ==k){
+                    count++;
+                /*count += map.get(sum);*/
+                map.put(sum ,map.get(sum)+1);
+            }
+        }
+            
+            else{
+                map.put(sum ,1);
+            }
+        }
+        return count;
+        
+        
+    }
+}
